@@ -1,0 +1,137 @@
+<app-navbartienda></app-navbartienda>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="d-flex justify-content-center">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/5d2b/bfed/ffb5/42f7/9d35/c568/a53d/c9ce/995b/f91b/f91b.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://chile.as.com/futbol/imagenes/2020/09/19/internacional/1600511326_709661_1600511429_noticia_normal_recorte1.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://www.puma-catchup.com/wp-content/uploads/2016/07/Griezmann-of-the-match_H1-750x421.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<!--
+  <div class="container-fluid mt-1 bg-dark text-center">
+      <div class="row">
+          <div class="col"><span class="text-white">DESPACHO GRATIS A TODO CHILE</span></div>
+          <div class="col"><span class="text-white">6 CUOTAS SIN INTERES</span></div>
+          <div class="col"><span class="text-white">GARANTIA EXTENDIDA</span></div>
+      </div>
+  </div>
+  -->
+  <div class="container">
+      <div class="row">
+              <div class="col-md-4 mt-3">
+                  <form class="d-flex">
+                      <input class="form-control me-2" [formControl]="clave" ng-model="searchText" type="text" placeholder="Palabra clave: camiseta, polera, poleron" aria-label="Search">
+                      <button (click) = "busquedaClave()" class="btn btn-outline-success" type="submit">Buscar</button>
+                      <button (click) = "quitarBusqueda()" class="btn btn-outline-success" type="submit">Quitar</button>
+                      <svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="bootstrap-icons.svg#heart-fill"/>
+                      </svg>
+                    </form> 
+              </div>   
+              <div class="col-md-4 mt-8">
+              </div>
+              <div class="col-md-4 mt-3">
+                  <button data-bs-target="#exampleModal" data-bs-toggle="modal" class="btn float-end"><i class="bi bi-cart"></i> Carrito <span *ngIf="productosCarrito.length>0">({{productosCarrito.length}})</span></button>
+              </div>
+      </div>
+  </div>
+  <hr>
+  
+  <div class="container mt-5">
+      <div class="row">
+          <div class="col">
+              <h4 class="text-center">Productos disponibles</h4><br><br>
+              <mat-paginator [length]="productosActual.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)"></mat-paginator> 
+              <br>
+              <div class="row">
+                <div class="col-md-3 mb-3" *ngFor="let items of productosActual  | paginate:page_size:page_number searchText let i = index">
+                      <img width="250" src="{{items.img}}"><br>
+                      <span class="fw-bold">{{items.nombre}}</span>
+                      <br>
+                      <span class="fw-bold">{{items.precio | currency:'CLP $': 'symbol': '1.0-0'}}</span>
+                      <br>
+                      <!--<span class="fw-bold">Agregar al Carrito</span>-->
+                      <br>
+                    
+                      <button class="btn btn-dark" style='width:250px; height:50px' (click)="agregarProducto(i)" >Agregar al carrito<i  style="color:green" class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                     
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+  
+  <!-- Modal Carrito de compra -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header border-bottom-0">
+              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <table class="table table-image">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let p of productosCarrito; let j = index">
+                      <td class="w-25">
+                        <img src="{{p.img}}" class="img-fluid img-thumbnail" alt="Sheep">
+                      </td>
+                      <td>{{p.nombre}}</td>
+                      <td>{{p.precio}}</td>
+                      <td style="width:15%;"><input type="text" class="form-control" [formControl]="cantidad" id="input1" placeholder="{{productosCantidad[j+1].cant}}"></td>
+                      <td>{{p.precio*productosCantidad[j+1].cant}}</td>
+                      <td>
+                        <button (click) = "eliminarProducto(p.codigo)" class="btn btn-danger btn-sm ">Eliminar
+                          <i class="fa fa-times"></i>
+                        </button> 
+                        <br>&nbsp;
+                        <button (click) = "actualizarProducto(p.codigo)"  href="#" class="btn btn-success btn-sm">Actualizar
+                          <i class="fas fa-sync-alt"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <th>Total:</th>
+                      <td>{{totalDinero | currency:'CLP'}}</td>
+                      <td></td>
+                  </tr>
+                  </tbody>
+                </table> 
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-dark" (click)="Total()">Ir a Pagar</button>
+              <!--<button data-bs-dismiss="modal" type="button" routerLink="../formulariopedido" class="btn btn-primary">Pagar</button>-->
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  
+ <app-footertienda></app-footertienda>

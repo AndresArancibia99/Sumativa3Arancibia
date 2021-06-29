@@ -1,0 +1,23 @@
+<div id="image">
+<br>
+<section class="form-register">
+    <h4>Bienvenido</h4>
+    <hr>
+    <label for="exampleInputUser">Usuario</label>
+    <input type="text" class="form-control" [formControl]="user" placeholder="Usuario">
+     <br>
+     <br>
+     <label for="exampleInputPassword">Contraseña</label>
+    <input type="password" class="form-control" [formControl]="pwd" placeholder="Contraseña">
+     <br>
+     <br>
+     <button type="submit" (click)=validar() class="btn btn-primary">Iniciar sesión</button>
+     <br>
+     <br>
+              <span style="color:red">{{alertUser}}</span>
+   </section>
+   <br>
+   <br>
+   <br>
+</div>
+

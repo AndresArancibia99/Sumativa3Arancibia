@@ -1,0 +1,53 @@
+<app-navbartienda></app-navbartienda>
+<br>
+<br>    
+<div class="container">
+    <div class="row">
+      <div class="col">
+            <h1 align="center">Registro de Tarjeta</h1> 
+            <hr>
+            <br>        
+            <p>Tipo de Tarjeta: ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="tarjeta.TipoTarjeta" placeholder="Debito/Credito/Banco"/></p>
+            <br>
+            <p>Nombre Titular de la Tarjeta: ⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="tarjeta.NombreTarjeta" placeholder="Nombre y Apellido "/></p>
+            <br>
+            <p>Numero de Tarjeta: ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="tarjeta.NumerodeTarjeta" placeholder="1111 2222 3333 4444"/></p>
+            <br>
+            <p>Código de Seguridad:   ⠀⠀⠀⠀⠀⠀⠀⠀⠀<input type="password" [(ngModel)]="tarjeta.CVV" placeholder="CVV"/></p>
+            <br>
+            <p> Mes de Expiración: ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="tarjeta.MesExp" placeholder="01"/></p>
+            <br>
+            <p> Año de Expiración: ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="tarjeta.AnoExp" placeholder="2024"/></p>
+            <br>
+            <div class="col-md-12 text-center">
+            <p><button  class="btn btn-success" (click)="AgregarTarjeta()">Agregar Tarjeta de Credito</button></p>
+        </div>
+        </div>
+      
+      <div class="col">
+          
+          <h1>Resumen de tu Compra</h1>
+          <hr>
+            
+          <span>Precio Productos:⠀⠀⠀</span><span>{{totalDinero | currency:'CLP $' : 'symbol' : '1.0-0'}}</span>
+          <br>
+          <span>IVA 19%:⠀⠀⠀⠀⠀⠀⠀⠀⠀</span><span>{{totalDinero*0.19 | currency:'CLP $' : 'symbol' : '1.0-0'}}</span>
+          <br>
+          <span>Costo de Envio: ⠀⠀⠀⠀</span><span>CLP $0</span>
+          <br>
+          <span>Total:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</span><span>{{totalDinero*1.19 | currency:'CLP $' : 'symbol' : '1.0-0'}}</span>
+          <br>
+          <br>
+          <button type="button" (click)="CancelarCompra()" class="btn btn-danger">Cancelar Compra</button>
+<br>
+<hr>
+<br>
+        <img src="https://www.helpmycash.com/image/show/2622/" class="img-fluid" alt="Responsive image">
+      </div>
+    </div>
+    </div>
+
+
+<br>
+<br>
+    <app-footertienda></app-footertienda>

@@ -1,0 +1,56 @@
+*{
+    margin: 50;
+    padding: 50
+  }
+  
+  #image {
+    background-color: rgba(0,0,0,0.8);
+    background-image:url(https://marcadegol.com/fotos//2021/01/puma-future-z.jpg);
+    height: 800px;
+    max-width: 100%;
+  }
+
+  
+  
+  .form-register {
+    width: 400px;
+    background: #ffffff;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: #141413;
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+  .form-register h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+ 
+  
+  .form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+  }
+  
+  .form-register a {
+    color: #080808;
+    text-decoration: none;
+  }
+  
+  
+  
+  .form-register .botons {
+    width: 100%;
+    background: #131312;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+  

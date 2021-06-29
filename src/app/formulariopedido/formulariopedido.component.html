@@ -1,0 +1,82 @@
+<app-navbartienda></app-navbartienda>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+          <br>
+        <h1>  Direccion de Envio del Producto   </h1>
+        <hr>
+          <div class="container-fluid">
+            <p>Pais: ⠀⠀⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="formpedido.pais" placeholder="Chile"/></p>
+            <br>
+            <p>Región: ⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="formpedido.region" placeholder="Metropolitana"/></p>
+            <br>
+            <p>Ciudad: ⠀⠀⠀⠀⠀<input type="text" [(ngModel)]="formpedido.ciudad" placeholder="Santiago"/></p>
+            <br>
+            <p>Calle:⠀⠀⠀⠀⠀⠀ <input type="text" [(ngModel)]="formpedido.calle" placeholder="Av. Manuel Matta"/></p>
+            <br>
+            <p>Codigo Postal: <input type="text" [(ngModel)]="formpedido.codigopostal" placeholder="1030000"/></p>
+            <br>
+            <p><button  class="btn btn-success" (click)="AgregarPedido()">Agregar Direccion de Envio del Producto</button></p>
+        
+          </div>
+      </div>
+      
+      <div class="col">
+            <br>
+            <br>
+            <!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Santiago+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+<br>
+<!--Google Maps-->
+            <br>
+            <table style="border: hidden"class="table">
+
+              <tr>
+                <th scope="col"><img alt="" class="horizontalTextBoxes_item_image" src="https://public.cabifil.es/7ff9f7fde19ec217c0919354ed18c998.svg"></th>
+                <th scope="col"><img alt="" class="horizontalTextBoxes_item_image" src="https://public.cabifil.es/d8c998009be9ceb3fd58f054d66e56ca.svg"></th>
+                <th scope="col"><img alt="" class="horizontalTextBoxes_item_image" src="https://public.cabifil.es/3334d2d06c2e3f502fc472e06a53cbe6.svg"></th>
+              </tr>
+      
+            <tbody>
+              <tr>
+                <td><p class="typography-heading-4 mt-2">Sin riesgo y sin contacto</p></td>
+                <td><p class="typography-heading-4 mt-2">Ruta en tiempo real</p></td>
+                <td><p class="typography-heading-4 mt-2">Aviso al entregar</p> </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    </div>
+  <!--
+    <h1> Direcciones Registradas en Nuestro Sistema</h1>
+    <table  class="table " >
+        <thead>
+        <tr>
+            <th scope="col"><h2>Pais</h2></th>
+            <th scope="col"><h2>Region</h2></th>
+            <th scope="col"><h2>Ciudad</h2></th>
+            <th scope="col"><h2>Calle</h2></th>
+            <th scope="col"><h2>Codigo Postal</h2></th>
+            <th scope="col"><h2>Eliminar</h2></th>
+            <th scope="col"><h2>Seleccionar y Inscribir Tarjeta</h2></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let formpedido of pedidos">
+            <td>{{formpedido.pais}}</td>
+            <td>{{formpedido.region}}</td>
+            <td>{{formpedido.ciudad}}</td>
+            <td>{{formpedido.calle}}</td>
+            <td>{{formpedido.codigopostal}}</td>
+        </tr>
+    </tbody>
+    </table>
+    --> 
+
+
+    <app-footertienda></app-footertienda>
